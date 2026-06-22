@@ -1,0 +1,41 @@
+---
+import VideoEmbed from './VideoEmbed.astro';
+import { getTranslations, type Lang } from '../i18n/translations';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang);
+---
+
+<section id="portfolio">
+	<div class="container">
+		<div class="section-header">
+			<h2 class="section-title">{t.portfolio.title}</h2>
+			<p class="section-subtitle">{t.portfolio.subtitle}</p>
+		</div>
+
+		<div class="portfolio-grid">
+			{
+				t.portfolio.items.map((item) => (
+					<VideoEmbed
+						title={item.title}
+						category={item.category}
+						videoId={item.videoId}
+						placeholderLabel={t.portfolio.placeholderBadge}
+					/>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	.portfolio-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2rem;
+	}
+</style>

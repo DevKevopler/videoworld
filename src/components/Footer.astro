@@ -1,0 +1,79 @@
+---
+import { getTranslations, type Lang } from '../i18n/translations';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+	<div class="container footer-inner">
+		<div>
+			<span class="logo">Videomaailm</span>
+			<p class="tagline">{t.footer.tagline}</p>
+		</div>
+
+		<nav class="footer-nav">
+			<a href="#home">{t.nav.home}</a>
+			<a href="#services">{t.nav.services}</a>
+			<a href="#portfolio">{t.nav.portfolio}</a>
+			<a href="#about">{t.nav.about}</a>
+			<a href="#contact">{t.nav.contact}</a>
+		</nav>
+	</div>
+	<div class="container">
+		<p class="copyright">&copy; {year} Videomaailm. {t.footer.rights}</p>
+	</div>
+</footer>
+
+<style>
+	.site-footer {
+		border-top: 1px solid var(--color-border);
+		padding: 3.5rem 0 2rem;
+	}
+
+	.footer-inner {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 2rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.logo {
+		font-family: var(--font-display);
+		font-size: 1.3rem;
+	}
+
+	.tagline {
+		color: var(--color-text-muted);
+		margin-top: 0.5rem;
+		font-size: 0.9rem;
+	}
+
+	.footer-nav {
+		display: flex;
+		gap: 1.5rem;
+		flex-wrap: wrap;
+		font-size: 0.9rem;
+	}
+
+	.footer-nav a {
+		color: var(--color-text-muted);
+	}
+
+	.footer-nav a:hover {
+		color: var(--color-text);
+	}
+
+	.copyright {
+		color: var(--color-text-muted);
+		font-size: 0.8rem;
+		border-top: 1px solid var(--color-border);
+		padding-top: 1.5rem;
+	}
+</style>

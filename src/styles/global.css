@@ -1,0 +1,145 @@
+:root {
+	--color-bg: #0a0a0a;
+	--color-bg-alt: #131313;
+	--color-surface: #1a1a1a;
+	--color-border: #2a2a2a;
+	--color-text: #f5f3ee;
+	--color-text-muted: #a8a39a;
+	--color-accent: #d4af37;
+	--color-accent-dim: #9c812a;
+	--font-display: 'Playfair Display', Georgia, serif;
+	--font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+	--max-width: 1180px;
+	--section-padding: 6.5rem 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	width: 100%;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background: var(--color-bg);
+	color: var(--color-text);
+	font-family: var(--font-body);
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+	font-family: var(--font-display);
+	font-weight: 600;
+	line-height: 1.15;
+	margin: 0;
+}
+
+p {
+	margin: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+.container {
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: 0 1.5rem;
+}
+
+section {
+	padding: var(--section-padding);
+}
+
+.eyebrow {
+	display: inline-block;
+	font-family: var(--font-body);
+	font-size: 0.8rem;
+	font-weight: 600;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--color-accent);
+	margin-bottom: 1rem;
+}
+
+.section-title {
+	font-size: clamp(2rem, 4vw, 2.75rem);
+	margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+	color: var(--color-text-muted);
+	font-size: 1.05rem;
+	max-width: 42ch;
+}
+
+.section-header {
+	margin-bottom: 3rem;
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.85rem 1.75rem;
+	border-radius: 2px;
+	font-size: 0.95rem;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	border: 1px solid transparent;
+	cursor: pointer;
+	transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-primary {
+	background: var(--color-accent);
+	color: #0a0a0a;
+}
+
+.btn-primary:hover {
+	background: var(--color-accent-dim);
+}
+
+.btn-secondary {
+	background: transparent;
+	color: var(--color-text);
+	border-color: var(--color-border);
+}
+
+.btn-secondary:hover {
+	border-color: var(--color-accent);
+	color: var(--color-accent);
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+	:root {
+		--section-padding: 4.5rem 0;
+	}
+}

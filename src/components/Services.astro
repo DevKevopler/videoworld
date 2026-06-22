@@ -1,0 +1,78 @@
+---
+import Icon from './Icon.astro';
+import { getTranslations, type Lang } from '../i18n/translations';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang);
+---
+
+<section id="services">
+	<div class="container">
+		<div class="section-header">
+			<h2 class="section-title">{t.services.title}</h2>
+			<p class="section-subtitle">{t.services.subtitle}</p>
+		</div>
+
+		<div class="services-grid">
+			{
+				t.services.items.map((item) => (
+					<div class="service-card">
+						<Icon name={item.icon} class="service-icon" />
+						<h3>{item.title}</h3>
+						<p class="service-description">{item.description}</p>
+						<span class="service-price">{item.price}</span>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.service-card {
+		background: var(--color-bg-alt);
+		border: 1px solid var(--color-border);
+		border-radius: 4px;
+		padding: 2rem;
+		transition: border-color 0.2s ease, transform 0.2s ease;
+	}
+
+	.service-card:hover {
+		border-color: var(--color-accent-dim);
+		transform: translateY(-4px);
+	}
+
+	.service-icon {
+		color: var(--color-accent);
+		margin-bottom: 1.25rem;
+	}
+
+	.service-card h3 {
+		font-size: 1.3rem;
+		margin-bottom: 0.6rem;
+	}
+
+	.service-description {
+		color: var(--color-text-muted);
+		font-size: 0.95rem;
+		margin-bottom: 1.25rem;
+	}
+
+	.service-price {
+		display: inline-block;
+		font-weight: 600;
+		color: var(--color-accent);
+		font-size: 0.9rem;
+		letter-spacing: 0.02em;
+	}
+</style>
