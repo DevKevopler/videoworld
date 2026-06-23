@@ -1,0 +1,94 @@
+---
+import Icon from './Icon.astro';
+import { getTranslations, type Lang } from '../i18n/translations';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang);
+---
+
+<section id="testimonials">
+	<div class="container">
+		<div class="section-header reveal">
+			<h2 class="section-title">{t.testimonials.title}</h2>
+			<p class="section-subtitle">{t.testimonials.subtitle}</p>
+		</div>
+
+		<div class="testimonials-grid">
+			{
+				t.testimonials.items.map((item) => (
+					<figure class="testimonial-card reveal">
+						<div class="rating" aria-hidden="true">
+							{Array.from({ length: item.rating }).map(() => (
+								<Icon name="star" class="rating-star" />
+							))}
+						</div>
+						<blockquote>&ldquo;{item.quote}&rdquo;</blockquote>
+						<figcaption>
+							<span class="testimonial-name">{item.name}</span>
+							<span class="testimonial-role">{item.role}</span>
+						</figcaption>
+					</figure>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	.testimonials-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.testimonial-card {
+		margin: 0;
+		background: var(--color-bg-alt);
+		border: 1px solid var(--color-border);
+		border-radius: 4px;
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	.rating {
+		display: flex;
+		gap: 0.2rem;
+	}
+
+	.rating-star {
+		width: 1rem;
+		height: 1rem;
+		fill: var(--color-accent);
+		stroke: none;
+	}
+
+	blockquote {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 1.02rem;
+		line-height: 1.6;
+	}
+
+	figcaption {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+		margin-top: auto;
+	}
+
+	.testimonial-name {
+		font-weight: 600;
+		font-size: 0.95rem;
+	}
+
+	.testimonial-role {
+		color: var(--color-text-muted);
+		font-size: 0.85rem;
+	}
+</style>

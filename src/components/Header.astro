@@ -21,6 +21,8 @@ const altHref = lang === 'et' ? `${base}en/` : base;
 		<nav class="nav" id="main-nav">
 			<a href="#services">{t.nav.services}</a>
 			<a href="#portfolio">{t.nav.portfolio}</a>
+			<a href="#testimonials">{t.nav.testimonials}</a>
+			<a href="#equipment">{t.nav.equipment}</a>
 			<a href="#about">{t.nav.about}</a>
 			<a href="#contact">{t.nav.contact}</a>
 			<a href={altHref} class="lang-switch">{lang === 'et' ? 'EN' : 'ET'}</a>
@@ -63,8 +65,8 @@ const altHref = lang === 'et' ? `${base}en/` : base;
 	.nav {
 		display: flex;
 		align-items: center;
-		gap: 2rem;
-		font-size: 0.95rem;
+		gap: 1.5rem;
+		font-size: 0.92rem;
 	}
 
 	.nav a {
@@ -111,7 +113,7 @@ const altHref = lang === 'et' ? `${base}en/` : base;
 		display: block;
 	}
 
-	@media (max-width: 860px) {
+	@media (max-width: 1020px) {
 		.nav-toggle {
 			display: block;
 		}

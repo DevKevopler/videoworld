@@ -8,24 +8,43 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = getTranslations(lang);
+
+const categoryMap = new Map<string, string>();
+t.portfolio.items.forEach((item) => {
+	if (!categoryMap.has(item.categoryKey)) categoryMap.set(item.categoryKey, item.category);
+});
+const categories = Array.from(categoryMap.entries());
 ---
 
 <section id="portfolio">
 	<div class="container">
-		<div class="section-header">
+		<div class="section-header reveal">
 			<h2 class="section-title">{t.portfolio.title}</h2>
 			<p class="section-subtitle">{t.portfolio.subtitle}</p>
+		</div>
+
+		<div class="portfolio-filters" role="group">
+			<button type="button" class="filter-btn is-active" data-filter="all">{t.portfolio.filterAll}</button>
+			{
+				categories.map(([key, label]) => (
+					<button type="button" class="filter-btn" data-filter={key}>
+						{label}
+					</button>
+				))
+			}
 		</div>
 
 		<div class="portfolio-grid">
 			{
 				t.portfolio.items.map((item) => (
-					<VideoEmbed
-						title={item.title}
-						category={item.category}
-						videoId={item.videoId}
-						placeholderLabel={t.portfolio.placeholderBadge}
-					/>
+					<div class="portfolio-item reveal" data-category={item.categoryKey}>
+						<VideoEmbed
+							title={item.title}
+							category={item.category}
+							videoId={item.videoId}
+							placeholderLabel={t.portfolio.placeholderBadge}
+						/>
+					</div>
 				))
 			}
 		</div>
@@ -33,9 +52,61 @@ const t = getTranslations(lang);
 </section>
 
 <style>
+	.portfolio-filters {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.filter-btn {
+		background: transparent;
+		border: 1px solid var(--color-border);
+		color: var(--color-text-muted);
+		border-radius: 999px;
+		padding: 0.5rem 1.1rem;
+		font-family: var(--font-body);
+		font-size: 0.85rem;
+		font-weight: 500;
+		cursor: pointer;
+		transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+	}
+
+	.filter-btn:hover {
+		border-color: var(--color-accent-dim);
+		color: var(--color-text);
+	}
+
+	.filter-btn.is-active {
+		background: var(--color-accent);
+		border-color: var(--color-accent);
+		color: #0a0a0a;
+	}
+
 	.portfolio-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 		gap: 2rem;
 	}
+
+	.portfolio-item.is-hidden {
+		display: none;
+	}
 </style>
+
+<script>
+	const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+	const portfolioItems = document.querySelectorAll<HTMLElement>('.portfolio-item');
+
+	filterButtons.forEach((button) => {
+		button.addEventListener('click', () => {
+			const filter = button.dataset.filter;
+
+			filterButtons.forEach((b) => b.classList.toggle('is-active', b === button));
+			portfolioItems.forEach((item) => {
+				const matches = filter === 'all' || item.dataset.category === filter;
+				item.classList.toggle('is-hidden', !matches);
+			});
+		});
+	});
+</script>

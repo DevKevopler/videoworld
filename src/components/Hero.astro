@@ -20,6 +20,7 @@ const t = getTranslations(lang);
 			<a href="#portfolio" class="btn btn-secondary">{t.hero.ctaSecondary}</a>
 		</div>
 	</div>
+	<a href="#services" class="scroll-cue" aria-hidden="true"></a>
 </section>
 
 <style>
@@ -62,5 +63,47 @@ const t = getTranslations(lang);
 		display: flex;
 		gap: 1rem;
 		flex-wrap: wrap;
+	}
+
+	.scroll-cue {
+		position: absolute;
+		left: 50%;
+		bottom: 2rem;
+		width: 1.5rem;
+		height: 2.5rem;
+		border: 1px solid var(--color-border);
+		border-radius: 999px;
+		transform: translateX(-50%);
+	}
+
+	.scroll-cue::before {
+		content: '';
+		position: absolute;
+		top: 0.4rem;
+		left: 50%;
+		width: 4px;
+		height: 8px;
+		background: var(--color-accent);
+		border-radius: 999px;
+		transform: translateX(-50%);
+		animation: scroll-cue-bounce 1.8s ease-in-out infinite;
+	}
+
+	@keyframes scroll-cue-bounce {
+		0%,
+		100% {
+			transform: translate(-50%, 0);
+			opacity: 1;
+		}
+		50% {
+			transform: translate(-50%, 0.6rem);
+			opacity: 0.4;
+		}
+	}
+
+	@media (max-width: 720px) {
+		.scroll-cue {
+			display: none;
+		}
 	}
 </style>

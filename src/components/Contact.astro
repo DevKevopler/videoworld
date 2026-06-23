@@ -12,7 +12,7 @@ const t = getTranslations(lang);
 
 <section id="contact">
 	<div class="container contact-grid">
-		<div>
+		<div class="reveal">
 			<h2 class="section-title">{t.contact.title}</h2>
 			<p class="section-subtitle">{t.contact.subtitle}</p>
 
@@ -41,7 +41,7 @@ const t = getTranslations(lang);
 			</ul>
 		</div>
 
-		<form id="contact-form" class="contact-form" data-recipient={t.contact.email}>
+		<form id="contact-form" class="contact-form reveal" data-recipient={t.contact.email}>
 			<label class="visually-hidden" for="name">{t.contact.form.name}</label>
 			<input id="name" name="name" type="text" placeholder={t.contact.form.name} required />
 

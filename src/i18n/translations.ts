@@ -12,6 +12,8 @@ export const translations = {
 			home: 'Avaleht',
 			services: 'Teenused',
 			portfolio: 'Portfoolio',
+			testimonials: 'Arvustused',
+			equipment: 'Tehnika',
 			about: 'Minust',
 			contact: 'Kontakt',
 			cta: 'Küsi pakkumist',
@@ -59,11 +61,75 @@ export const translations = {
 			title: 'Portfoolio',
 			subtitle: 'Mõned viimased tööd — lisandub pidevalt.',
 			placeholderBadge: 'Video lisamisel',
+			filterAll: 'Kõik',
 			items: [
-				{ title: 'Pulm — Mari & Jaan', category: 'Pulmavideograafia', videoId: '' },
-				{ title: 'Brändivideo — kohalik ettevõte', category: 'Äriklipp', videoId: '' },
-				{ title: 'Vaade ülevalt', category: 'Drooni videograafia', videoId: '' },
-				{ title: 'Suvefestival 2025', category: 'Sündmuse filmimine', videoId: '' },
+				{ title: 'Pulm — Mari & Jaan', category: 'Pulmavideograafia', categoryKey: 'wedding', videoId: '' },
+				{
+					title: 'Brändivideo — kohalik ettevõte',
+					category: 'Äriklipp',
+					categoryKey: 'corporate',
+					videoId: '',
+				},
+				{ title: 'Vaade ülevalt', category: 'Drooni videograafia', categoryKey: 'drone', videoId: '' },
+				{ title: 'Suvefestival 2025', category: 'Sündmuse filmimine', categoryKey: 'event', videoId: '' },
+				{
+					title: 'Pulm — Liisa & Markus',
+					category: 'Pulmavideograafia',
+					categoryKey: 'wedding',
+					videoId: '',
+				},
+				{ title: 'Tootevideo — e-pood', category: 'Äriklipp', categoryKey: 'corporate', videoId: '' },
+			],
+		},
+		equipment: {
+			title: 'Tehnika',
+			subtitle: 'Kvaliteetne tehnika, mis tagab terava pildi ja sujuva liikumise igas projektis.',
+			items: [
+				{
+					icon: 'camera',
+					name: 'Sony FX3',
+					description:
+						'Täisformaadi kaamera, mis säilitab pildikvaliteedi ka hämaras valguses ja annab kinolikku sügavust.',
+				},
+				{
+					icon: 'gimbal',
+					name: 'DJI RS 3 Pro',
+					description: 'Elektrooniline stabilisaator, mis tagab sujuvad ja professionaalsed kaadrid.',
+				},
+				{
+					icon: 'drone',
+					name: 'DJI Mavic 3',
+					description: 'Droon, mis toob projekti õhust filmitud vaated ja täiesti uue perspektiivi.',
+				},
+				{
+					icon: 'mic',
+					name: 'Rode Wireless GO II',
+					description: 'Juhtmevaba helisüsteem, mis tagab puhta ja selge heli igas olukorras.',
+				},
+			],
+		},
+		testimonials: {
+			title: 'Mida kliendid ütlevad',
+			subtitle: 'Tagasiside inimestelt, kelle lugusid on mul olnud rõõm jäädvustada.',
+			items: [
+				{
+					quote: 'Lõpptulemus ületas kõik ootused — video on emotsionaalne ja samas väga professionaalne.',
+					name: 'Mari K.',
+					role: 'Pulmaklient',
+					rating: 5,
+				},
+				{
+					quote: 'Kiire, paindlik ja väga hea suhtlemine kogu projekti vältel. Soovitan soojalt!',
+					name: 'Tanel R.',
+					role: 'Ettevõtte juht',
+					rating: 5,
+				},
+				{
+					quote: 'Drooni kaadrid andsid meie sündmusele täiesti uue mõõtme. Tulemus oli muljetavaldav.',
+					name: 'Kristiina O.',
+					role: 'Sündmuse korraldaja',
+					rating: 5,
+				},
 			],
 		},
 		about: {
@@ -109,6 +175,8 @@ export const translations = {
 			home: 'Home',
 			services: 'Services',
 			portfolio: 'Portfolio',
+			testimonials: 'Testimonials',
+			equipment: 'Equipment',
 			about: 'About',
 			contact: 'Contact',
 			cta: 'Get a quote',
@@ -155,11 +223,85 @@ export const translations = {
 			title: 'Portfolio',
 			subtitle: 'A few recent projects — more added regularly.',
 			placeholderBadge: 'Video coming soon',
+			filterAll: 'All',
 			items: [
-				{ title: 'Wedding — Mari & Jaan', category: 'Wedding Videography', videoId: '' },
-				{ title: 'Brand film — local business', category: 'Corporate Video', videoId: '' },
-				{ title: 'View from above', category: 'Drone Videography', videoId: '' },
-				{ title: 'Summer Festival 2025', category: 'Event Coverage', videoId: '' },
+				{
+					title: 'Wedding — Mari & Jaan',
+					category: 'Wedding Videography',
+					categoryKey: 'wedding',
+					videoId: '',
+				},
+				{
+					title: 'Brand film — local business',
+					category: 'Corporate Video',
+					categoryKey: 'corporate',
+					videoId: '',
+				},
+				{ title: 'View from above', category: 'Drone Videography', categoryKey: 'drone', videoId: '' },
+				{ title: 'Summer Festival 2025', category: 'Event Coverage', categoryKey: 'event', videoId: '' },
+				{
+					title: 'Wedding — Liisa & Markus',
+					category: 'Wedding Videography',
+					categoryKey: 'wedding',
+					videoId: '',
+				},
+				{
+					title: 'Product film — online store',
+					category: 'Corporate Video',
+					categoryKey: 'corporate',
+					videoId: '',
+				},
+			],
+		},
+		equipment: {
+			title: 'Equipment',
+			subtitle: 'Quality gear that keeps every project sharp and the motion smooth.',
+			items: [
+				{
+					icon: 'camera',
+					name: 'Sony FX3',
+					description:
+						'A full-frame camera that holds up in low light and brings a cinematic depth to every shot.',
+				},
+				{
+					icon: 'gimbal',
+					name: 'DJI RS 3 Pro',
+					description: 'An electronic stabilizer for smooth, professional-grade footage.',
+				},
+				{
+					icon: 'drone',
+					name: 'DJI Mavic 3',
+					description: 'A drone that brings aerial footage and a whole new perspective to a project.',
+				},
+				{
+					icon: 'mic',
+					name: 'Rode Wireless GO II',
+					description: 'A wireless audio system that keeps sound clean and clear in any setting.',
+				},
+			],
+		},
+		testimonials: {
+			title: 'What clients say',
+			subtitle: "Feedback from people whose stories I've had the pleasure of capturing.",
+			items: [
+				{
+					quote: 'The final result exceeded every expectation — emotional and very professional at once.',
+					name: 'Mari K.',
+					role: 'Wedding client',
+					rating: 5,
+				},
+				{
+					quote: 'Fast, flexible, and great communication throughout the whole project. Highly recommend!',
+					name: 'Tanel R.',
+					role: 'Business owner',
+					rating: 5,
+				},
+				{
+					quote: 'The drone footage gave our event a whole new dimension. The result was impressive.',
+					name: 'Kristiina O.',
+					role: 'Event organizer',
+					rating: 5,
+				},
 			],
 		},
 		about: {
