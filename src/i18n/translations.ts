@@ -87,24 +87,22 @@ export const translations = {
 			items: [
 				{
 					icon: 'camera',
-					name: 'Sony FX3',
+					image: '/sony-a7-iii-body.jpg',
+					name: 'Sony A7 III',
 					description:
-						'Täisformaadi kaamera, mis säilitab pildikvaliteedi ka hämaras valguses ja annab kinolikku sügavust.',
+						'Täisformaadi peegelvaba kaamera 24.2MP sensori ja 4K videoga — terav pilt ka hämaras valguses.',
 				},
 				{
 					icon: 'gimbal',
-					name: 'DJI RS 3 Pro',
-					description: 'Elektrooniline stabilisaator, mis tagab sujuvad ja professionaalsed kaadrid.',
+					image: '/djirs4 ini.webp',
+					name: 'DJI RS4 Mini',
+					description: '3-teljeline elektrooniline stabilisaator, mis tagab sujuvad ja professionaalsed kaadrid igas olukorras.',
 				},
 				{
 					icon: 'drone',
-					name: 'DJI Mavic 3',
-					description: 'Droon, mis toob projekti õhust filmitud vaated ja täiesti uue perspektiivi.',
-				},
-				{
-					icon: 'mic',
-					name: 'Rode Wireless GO II',
-					description: 'Juhtmevaba helisüsteem, mis tagab puhta ja selge heli igas olukorras.',
+					image: '/dji-mini-3.jpg',
+					name: 'DJI Mini 3',
+					description: 'Kompaktne droon alla 249g, mis filmib 4K kvaliteedis ja toob projekti täiesti uue perspektiivi.',
 				},
 			],
 		},
@@ -259,24 +257,22 @@ export const translations = {
 			items: [
 				{
 					icon: 'camera',
-					name: 'Sony FX3',
+					image: '/sony-a7-iii-body.jpg',
+					name: 'Sony A7 III',
 					description:
-						'A full-frame camera that holds up in low light and brings a cinematic depth to every shot.',
+						'Full-frame mirrorless camera with a 24.2MP sensor and 4K video — sharp in low light and built for cinematic work.',
 				},
 				{
 					icon: 'gimbal',
-					name: 'DJI RS 3 Pro',
-					description: 'An electronic stabilizer for smooth, professional-grade footage.',
+					image: '/djirs4 ini.webp',
+					name: 'DJI RS4 Mini',
+					description: '3-axis electronic stabilizer that delivers smooth, professional footage in any situation.',
 				},
 				{
 					icon: 'drone',
-					name: 'DJI Mavic 3',
-					description: 'A drone that brings aerial footage and a whole new perspective to a project.',
-				},
-				{
-					icon: 'mic',
-					name: 'Rode Wireless GO II',
-					description: 'A wireless audio system that keeps sound clean and clear in any setting.',
+					image: '/dji-mini-3.jpg',
+					name: 'DJI Mini 3',
+					description: 'Compact drone under 249g, filming in 4K and bringing a whole new aerial perspective to every project.',
 				},
 			],
 		},

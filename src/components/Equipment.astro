@@ -1,5 +1,4 @@
 ---
-import Icon from './Icon.astro';
 import { getTranslations, type Lang } from '../i18n/translations';
 
 interface Props {
@@ -21,9 +20,13 @@ const t = getTranslations(lang);
 			{
 				t.equipment.items.map((item) => (
 					<div class="equipment-card reveal">
-						<Icon name={item.icon} class="equipment-icon" />
-						<h3>{item.name}</h3>
-						<p>{item.description}</p>
+						<div class="card-image">
+							<img src={item.image} alt={item.name} loading="lazy" />
+						</div>
+						<div class="card-body">
+							<h3>{item.name}</h3>
+							<p>{item.description}</p>
+						</div>
 					</div>
 				))
 			}
@@ -34,36 +37,75 @@ const t = getTranslations(lang);
 <style>
 	.equipment-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-		gap: 1.5rem;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+	}
+
+	@media (max-width: 900px) {
+		.equipment-grid {
+			grid-template-columns: 1fr;
+		}
 	}
 
 	.equipment-card {
 		background: var(--color-bg-alt);
 		border: 1px solid var(--color-border);
-		border-radius: 4px;
-		padding: 2rem;
-		text-align: center;
-		transition: border-color 0.2s ease, transform 0.2s ease;
+		border-radius: 12px;
+		overflow: hidden;
+		transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 	}
 
 	.equipment-card:hover {
-		border-color: var(--color-accent-dim);
-		transform: translateY(-4px);
+		border-color: var(--color-accent);
+		transform: translateY(-6px);
+		box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 	}
 
-	.equipment-icon {
-		color: var(--color-accent);
-		margin: 0 auto 1.25rem;
+	.card-image {
+		aspect-ratio: 1 / 1;
+		overflow: hidden;
+		background: var(--color-bg-alt);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
 	}
 
-	.equipment-card h3 {
-		font-size: 1.1rem;
+	.card-image::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(ellipse at center, transparent 40%, var(--color-bg-alt) 80%);
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.card-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		padding: 2.5rem;
+		mix-blend-mode: multiply;
+		transition: transform 0.35s ease;
+	}
+
+	.equipment-card:hover .card-image img {
+		transform: scale(1.06);
+	}
+
+	.card-body {
+		padding: 2rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.card-body h3 {
+		font-size: 1.25rem;
 		margin-bottom: 0.6rem;
 	}
 
-	.equipment-card p {
+	.card-body p {
 		color: var(--color-text-muted);
-		font-size: 0.92rem;
+		font-size: 0.95rem;
+		line-height: 1.6;
 	}
 </style>

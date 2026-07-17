@@ -1,13 +1,13 @@
 :root {
-	--color-bg: #ffffff;
-	--color-bg-alt: #f7f6f2;
-	--color-surface: #f0eee7;
-	--color-border: #e2dfd6;
-	--color-text: #1a1a1a;
-	--color-text-muted: #6b6760;
-	--color-accent: #b08a2e;
-	--color-accent-dim: #8c6c1f;
-	--color-ink: #141414;
+	--color-bg: #2b2d2f;
+	--color-bg-alt: #232628;
+	--color-surface: #1e2122;
+	--color-border: #3d4245;
+	--color-text: #f0f0f0;
+	--color-text-muted: #9ea3a8;
+	--color-accent: #e82020;
+	--color-accent-dim: #c41a1a;
+	--color-ink: #e82020;
 	--font-display: 'Playfair Display', Georgia, serif;
 	--font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 	--max-width: 1180px;
@@ -127,7 +127,7 @@ section {
 }
 
 .btn-primary:hover {
-	background: var(--color-accent);
+	background: var(--color-accent-dim);
 }
 
 .btn-secondary {
